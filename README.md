@@ -4,7 +4,7 @@ MSRCR(Multi-Scale Retinex with Color Restoration) 带色彩恢复的多尺度视
 
 可以参看这篇[博客](https://www.cnblogs.com/Imageshop/archive/2013/04/17/3026881.html)。该作者按照GIMP中的contrast-retinex插件源码制作了一个MSRCR小工具，并提供了可执行程序(.exe)[下载](http://files.cnblogs.com/Imageshop/Retinex.zip)。作者提供了GIMP的插件的[源码下载](http://files.cnblogs.com/Imageshop/contrast-retinex.rar)，但没有提供自制工具的源码下载，而这个工具用起来限制颇多也不能用命令行。
 
-前一段时间用到MSRCR算法，于是照着源码自己用Python实现了一个类似的工具，效果基本上相同。包含命令模式(MSRCR.py)和GUI小工具(MSRCR_GUI.py)两个文件。
+前一段时间用到MSRCR算法，于是照着源码自己用Python实现了一个类似的工具，效果基本上相同(当然速度慢很多)。包含命令模式(MSRCR.py)和GUI小工具(MSRCR_GUI.py)两个文件。
 
 ## 命令行
 
