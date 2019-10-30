@@ -11,15 +11,16 @@ MSRCR(Multi-Scale Retinex with Color Restoration) 带色彩恢复的多尺度视
 运行`MSRCR.py`文件即可。
 
 ```shell
-usage: python MSRCR.py [-h] -i INPUT -o OUTPUT [-s S] [-n N] [-d D]
+usage: python MSRCR.py [-h] -i INPUT -o OUTPUT [-s S] [-n N] [-d D] [--no_cr]
 
 optional arguments:
   -h, --help                       show this help message and exit
-  -i INPUT, --input INPUT          Input image path
-  -o OUTPUT, --output OUTPUT       Output image path
-  -s S                             The scale (reference value)
-  -n N                             The number of scale
-  -d D                             The dynamic, the smaller the value, the higher the contrast
+  -i INPUT, --input INPUT          input image path
+  -o OUTPUT, --output OUTPUT       output image path
+  -s S                             the scale (reference value)
+  -n N                             the number of scale
+  -d D                             the dynamic, the smaller the value, the higher the contrast
+  --no_cr                          do NOT do cr
 ```
 
 ## GUI小工具
