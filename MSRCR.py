@@ -1,14 +1,17 @@
-import cv2
-import numpy as np
 from matplotlib import pyplot as plt
+import numpy as np
 import argparse
+import cv2
+import os
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--input', required=True, help='Input image path')
-parser.add_argument('-o', '--output', required=True, help='Output image path')
-parser.add_argument('-s', default=300, type=float, help='The scale (reference value)')
-parser.add_argument('-n', default=3, type=int, help='The number of scale')
-parser.add_argument('-d', default=2, type=float, help='The dynamic, the smaller the value, the higher the contrast')
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', required=True, help='input image path')
+    parser.add_argument('-o', '--output', required=True, help='output image path')
+    parser.add_argument('-s', default=300, type=float, help='the scale (reference value)')
+    parser.add_argument('-n', default=3, type=int, help='the number of scale')
+    parser.add_argument('-d', default=2, type=float, help='the dynamic, the smaller the value, the higher the contrast')
+    parser.add_argument('--no_cr', action='store_true', help='do NOT do cr')
 
 
 def retinex_scales_distribution(max_scale, nscales):
@@ -57,12 +60,13 @@ def MSRCR(image_path, max_scale, nscales, dynamic=2.0, do_CR=True):
 if __name__ == '__main__':
     ####################################################################################
     # plt.close('all')
-    # image_path = r'D:\documents\WORKS_DeepOcean\projects\data\test_imgs\MSRCR\18.jpg'
+    # image_path = r'test_images/18.jpg'
     # out_msrcr = MSRCR(image_path, max_scale=300, nscales=3, dynamic=2, do_CR=True)
-    # cv2.imshow('MSRCR', out_msrcr[:, :, (2, 1, 0)])
+    # plt.figure(); plt.title('MSRCR'); plt.imshow(out_msrcr)
     # out_msr = MSRCR(image_path, max_scale=300, nscales=3, dynamic=2, do_CR=False)
-    # cv2.imshow('MSR', out_msr[:, :, (2, 1, 0)])
+    # plt.figure(); plt.title('MSRCR'); plt.imshow(out_msr)
+    # plt.show()
     ####################################################################################
     args = parser.parse_args()
-    im_out = MSRCR(args.input, args.s, args.n, args.d)
+    im_out = MSRCR(args.input, args.s, args.n, args.d, not args.no_cr)
     cv2.imwrite(args.output, im_out[:, :, (2, 1, 0)])
