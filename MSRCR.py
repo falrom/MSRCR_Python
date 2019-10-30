@@ -64,7 +64,7 @@ if __name__ == '__main__':
     # out_msrcr = MSRCR(image_path, max_scale=300, nscales=3, dynamic=2, do_CR=True)
     # plt.figure(); plt.title('MSRCR'); plt.imshow(out_msrcr)
     # out_msr = MSRCR(image_path, max_scale=300, nscales=3, dynamic=2, do_CR=False)
-    # plt.figure(); plt.title('MSRCR'); plt.imshow(out_msr)
+    # plt.figure(); plt.title('MSR'); plt.imshow(out_msr)
     # plt.show()
     ####################################################################################
     args = parser.parse_args()
