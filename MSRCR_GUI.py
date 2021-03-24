@@ -22,7 +22,13 @@ def CR(im_ori, im_log, alpha=128., gain=1., offset=0.):
 
 
 def MSRCR(image, max_scale, nscales, dynamic=2.0, do_CR=True):
+
     im_ori = np.float32(image)
+    if (im_ori.ndim == 2):
+        im_ori = im_ori[:, :, np.newaxis]
+    if (im_ori.shape[2] == 1):
+        im_ori = im_ori.repeat(3, axis=2)
+
     scales = retinex_scales_distribution(max_scale, nscales)
 
     im_blur = np.zeros([len(scales), im_ori.shape[0], im_ori.shape[1], im_ori.shape[2]])
